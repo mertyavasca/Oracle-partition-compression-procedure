@@ -1,0 +1,29 @@
+CREATE TABLE DUMMY_USER.TABLE_DT
+(
+  C_OWNER             VARCHAR2(1000 BYTE),
+  C_TABLENAME         VARCHAR2(1000 BYTE),
+  C_PARTITION         VARCHAR2(1000 BYTE),
+  PARTITION_POSITION  NUMBER,
+  C_DT                DATE,
+  STATUS              VARCHAR2(25 BYTE),
+  BYTES_GB            NUMBER,
+  DDL                 VARCHAR2(1000 BYTE)
+)
+TABLESPACE USERS
+PCTUSED    0
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          64K
+            NEXT             1M
+            MAXSIZE          UNLIMITED
+            MINEXTENTS       1
+            MAXEXTENTS       UNLIMITED
+            PCTINCREASE      0
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+MONITORING;
