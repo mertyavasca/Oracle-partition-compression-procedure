@@ -4,7 +4,7 @@ This plsql procedure migrates old partitions of the table to compressed new bloc
 
 How to use it ?
 
---> If you create a new table, check **example_compressed_table.sql**
+--> If you create a new table, check **partitioned_clob_compressed_table.sql**
     
    
 1. If you compress cold data by partitions, first you need to change table's attiribute to compress. This command changes the behavior of the table. It does not compress the old data, it compresses the new incoming data.
