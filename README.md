@@ -12,6 +12,7 @@ How to use it ?
      ALTER TABLE DUMMY_USER.DUMMY_TABLE COMPRESS; 
      
 2. Create logging table for procedure so we can obtain how much we have gained from storage and if the job is interrupted, it sees which partition it has left and continues from there so this procedure is **Idempotent**. For logging table, see **log_table.sql**
+
 **You can check partition_final.png to see example result of compression :)**
     
 3. Call procedure from command line with nohup to make sure that it doesn't crash into timeout or get killed by another cron job. If you don't specify the new tablespace, it moves partitions in current one.
