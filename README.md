@@ -16,7 +16,7 @@ How to use it ?
 3. Call procedure from command line with nohup to make sure that it doesn't crash into timeout or get killed by another cron job. If you don't specify the new tablespace, it moves partitions in current one.
 
 
-  ## Important Points
+  ## Points you should consider :)
 
     1. You can always kill the session, when the procedure is called again, it will start where it left off by reading from the log table.
     
@@ -24,4 +24,4 @@ How to use it ?
     
     3. If you have indexes on partitions which are compressed, you have to rebuild to reuse it. Moving partitions make indexes unusable for once.
     
-    4. In tables which contains CLOB fields, use deduplicate option in lob segments.
+    4. In tables which contains CLOB fields, use deduplicate option in lob segments. DB_SECUREFILE must be "PREFERRED" to use this feature.
