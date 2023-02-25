@@ -1,7 +1,7 @@
 CREATE OR REPLACE PROCEDURE DUMMY_USER.COMPRESSION_PROCEDURE (p_tsname varchar2 default null,gb_table_name varchar2(100))IS
 n_bytes number;
 str varchar2(100);
-eski_partition varchar2(100);
+old_partition varchar2(100);
   CURSOR partition
   IS
     SELECT
@@ -29,7 +29,7 @@ BEGIN
   open ch_segment(input.table_owner,gb_table_name,input.partition_name);
   fetch ch_segment into n_bytes;
   close ch_segment;
-  select count(*) into eski_partition from table_dt where c_partition = input.partition_name AND STATUS = 'FINISH';
+  select count(*) into old_partition from table_dt where c_partition = input.partition_name AND STATUS = 'FINISH';
   if eski_partition = 0 then
     str:= 'ALTER TABLE ' ||  input.table_owner || '.' || gb_table_name || ' MOVE PARTITION ' || input.partition_name  ;
     if p_tsname is not null then
