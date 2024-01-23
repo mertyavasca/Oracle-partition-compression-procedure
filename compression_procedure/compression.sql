@@ -30,7 +30,7 @@ BEGIN
   fetch ch_segment into n_bytes;
   close ch_segment;
   select count(*) into old_partition from table_dt where c_partition = input.partition_name AND STATUS = 'FINISH';
-  if eski_partition = 0 then
+  if old_partition = 0 then
     str:= 'ALTER TABLE ' ||  input.table_owner || '.' || gb_table_name || ' MOVE PARTITION ' || input.partition_name  ;
     if p_tsname is not null then
     str:= str || ' TABLESPACE ' || p_tsname ;
